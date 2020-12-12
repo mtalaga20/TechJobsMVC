@@ -29,12 +29,12 @@ namespace TechJobsMVC.Controllers
             }
             else
             {
-                jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
-                ViewBag.title = "Jobs with " + searchType + ": " + searchTerm;
+                jobs = JobData.FindByColumnAndValue(searchType, searchTerm);   
             }
-            ViewBag.searchJobs = jobs;
+            ViewBag.title = "Jobs with " + ListController.ColumnChoices[searchType] + ": " + searchTerm;
+            ViewBag.jobs = jobs;
             ViewBag.columns = ListController.ColumnChoices;
-            return View();
+            return View("Index");
         }
     }
 }
